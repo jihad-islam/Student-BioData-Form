@@ -140,3 +140,128 @@ input[type="reset"]:hover {
     padding: 15px;
   }
 }
+
+/* Form validation styles */
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.validation-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.validation-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Fix for textarea icon position */
+.form-field textarea + .validation-icon {
+  top: 18px; /* Better alignment for textarea */
+}
+
+/* Add spacing for the validation icon */
+input,
+textarea {
+  padding-right: 30px;
+}
+
+/* Remove right padding from select elements */
+select {
+  padding-right: 10px;
+}
+
+/* Validation state styling for inputs and textareas only */
+input.valid:not([type="submit"]):not([type="reset"]),
+textarea.valid {
+  border: 2px solid #2ecc71 !important;
+}
+
+input.invalid:not([type="submit"]):not([type="reset"]),
+textarea.invalid {
+  border: 2px solid #e74c3c !important;
+}
+
+/* Disable colored borders for select elements */
+select.valid,
+select.invalid {
+  border: 1px solid #ddd !important;
+}
+
+select:focus {
+  border-color: #3498db !important;
+}
+
+/* ...existing code... */
+
+/* Styling for radio buttons and checkboxes */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.radio-label input[type="radio"],
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+/* For vertical alignment with text */
+input[type="radio"],
+input[type="checkbox"] {
+  min-width: 16px;
+  height: 16px;
+}
+
+/* Terms checkbox styling */
+.checkbox-label.terms {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Make sure validation works with radio groups */
+.radio-group.invalid {
+  border: 2px solid #e74c3c;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.radio-group.valid {
+  border: 2px solid #2ecc71;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+/* Mobile adjustment for checkboxes and radios */
+@media (max-width: 600px) {
+  .radio-group,
+  .checkbox-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
